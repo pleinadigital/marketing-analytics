@@ -226,6 +226,45 @@
       color: var(--gray-light);
       margin-top: 8px;
     }
+    /* — Tracking-break flagging (GA4 engagement inflated until Apr 9, 2026) — */
+    .data-health {
+      border: 1px solid #E4D9C8;
+      background: #FBF8F3;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 0 0 20px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--charcoal);
+    }
+    .data-health .dh-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 8px;
+    }
+    .data-health .dh-row { display: flex; gap: 8px; align-items: flex-start; }
+    .data-health .dh-row + .dh-row { margin-top: 5px; }
+    .data-health .dh-ok   { color: #1e8449; font-weight: 700; }
+    .data-health .dh-warn { color: #C45419; font-weight: 700; }
+    .data-health .dh-metrics { font-weight: 600; }
+    .data-health .dh-note { color: var(--gray); }
+    /* Neutralized (not-comparable) YoY chip — replaces the green/red % */
+    .change.yoy-broken, .delta.yoy-broken {
+      color: var(--gray) !important;
+      font-weight: 600;
+      cursor: help;
+    }
+    .change.yoy-broken .yoy-nc-sub { font-weight: 400; color: var(--gray-light); }
+    /* Small inline warning glyph next to an affected metric label */
+    .metric-warn {
+      color: #C45419;
+      font-weight: 700;
+      cursor: help;
+      margin-left: 5px;
+    }
     .chart-callout {
       position: absolute;
       top: 24px;
@@ -1318,6 +1357,9 @@
   
 
   
+  
+
+  
 
   <div class="header">
     <h1>Kalamazoo Outdoor Gourmet</h1>
@@ -1327,11 +1369,10 @@
   </div>
 
   <div class="tabs">
-    <button class="tab active" data-tab="overview">Overview</button>
-    <button class="tab" data-tab="monthly">Monthly</button>
+    <button class="tab active" data-tab="monthly">Monthly</button>
     <button class="tab" data-group="website" data-members="tab-website,tab-ecommerce,tab-conversion">Website</button>
-    <button class="tab" data-group="organic" data-members="tab-instagram,tab-facebook,tab-youtube,tab-linkedin,tab-pinterest,tab-email">Organic Marketing</button>
-    <button class="tab" data-group="paid" data-members="tab-paid-search,tab-paid-social">Paid Marketing</button>
+    <button class="tab" data-group="paid" data-members="tab-paid-overview,tab-paid-search,tab-paid-social">Paid Marketing</button>
+    <button class="tab" data-group="organic" data-members="tab-organic-overview,tab-instagram,tab-facebook,tab-youtube,tab-linkedin,tab-pinterest,tab-email">Organic Marketing</button>
     <button class="tab" data-tab="ai-seo">AI SEO</button>
     <button class="tab" data-tab="draft">Draft</button>
     <button class="tab" data-tab="qbr">QBR</button>
@@ -1339,7 +1380,7 @@
   <div id="group-subnav-host"></div>
 
   <!-- ====== OVERVIEW ====== -->
-  <div class="tab-content active" id="tab-overview">
+  <div class="tab-content" id="tab-organic-overview">
     <div class="container">
       <div class="cards">
         
@@ -1449,45 +1490,7 @@
       </div>
       
 
-      
-      <div class="cards" style="margin-top: 16px;">
-        <div class="card">
-          <div class="label">Paid Impressions</div>
-          <div class="value">1,257,712</div>
-          <div class="sub">Meta paid · 2026-05</div>
-          
-          <div class="change down">▼ -37.2% MoM</div>
-          
-        </div>
-        <div class="card">
-          <div class="label">Paid Reach</div>
-          <div class="value">707,737</div>
-          <div class="sub">Meta paid</div>
-          
-          <div class="change up">▲ +3.4% MoM</div>
-          
-        </div>
-        <div class="card">
-          <div class="label">Paid Engagement</div>
-          <div class="value">1,333</div>
-          <div class="sub">Reactions + comments + shares + saves</div>
-          
-          <div class="change down">▼ -79.0% MoM</div>
-          
-        </div>
-        <div class="card">
-          <div class="label">Paid Link Clicks</div>
-          <div class="value">30,852</div>
-          <div class="sub">Meta paid</div>
-          
-          <div class="change down">▼ -35.8% MoM</div>
-          
-        </div>
-      </div>
-      <p style="font-size: 12px; color: var(--gray); margin: 8px 0 0; line-height: 1.5;">
-        Paid row sourced from Meta Ads Manager export — separate from organic to avoid mixing definitions. Paid YouTube and LinkedIn are not yet in the pipeline. See the Paid Social tab for the segment breakdown.
-      </p>
-      
+      <!-- Paid overview cards moved to the Paid Marketing landing (tab-paid-overview) -->
 
       <!-- At Home Outdoors Series -->
       
@@ -1694,29 +1697,6 @@
         </div>
       </div>
 
-      
-  
-  <div class="insights-section">
-    <h3>Strategic Insights</h3>
-    <div class="insight-cards">
-      
-      <div class="insight-card medium">
-        <div class="insight-headline">Instagram and Facebook account for 73.7% of all impressions</div>
-        <div class="insight-stat">Instagram: 1.5M (46.3%) | Facebook: 897K (27.3%)</div>
-        <div class="insight-rec">Concentration risk: 46.3% of visibility depends on Instagram. Monitor for algorithm changes that could impact reach overnight.</div>
-      </div>
-      
-      <div class="insight-card high">
-        <div class="insight-headline">Top performer: Reel drove 79 interactions — here's why it worked</div>
-        <div class="insight-stat">"“To have a product like Kalamazoo here at my house, waiting for me to use - that’s a true …" · 64 likes · 0 comments · 10 shares · 5 saves</div>
-        <div class="insight-rec">Instagram's algorithm pushes Reels into discovery feeds beyond the existing follower base, surfacing the brand to look-alike audiences who index high on craft, food, and design — the format buys reach you can't earn from a still. 5 saves indicate viewers bookmarking the post for later reference — a strong intent signal for a high-consideration category, and a ranking signal Instagram weighs heavily in feed distribution. With 10 shares, viewers were willing to associate themselves publicly with the content. Shares carry more weight than likes for luxury brands — they're a taste-signal, telling the algorithm and the audience that the post represents who someone wants to be seen as.</div>
-      </div>
-      
-    </div>
-  </div>
-  
-  
-
       <div class="section">
         <h3>Top Performing Content — All Platforms</h3>
         
@@ -1874,10 +1854,69 @@ Explore: https://hubs.ly/Q04</td>
     </div>
   </div>
 
+  <!-- ====== PAID MARKETING OVERVIEW (landing for the Paid group) ====== -->
+  <div class="tab-content" id="tab-paid-overview">
+    <div class="container">
+      <h2 style="font-size: 28px; font-weight: 300; color: var(--charcoal); margin: 0 0 8px;">Paid Marketing</h2>
+      
+      <div class="cards">
+        <div class="card">
+          <div class="label">Paid Impressions</div>
+          <div class="value">1,257,712</div>
+          <div class="sub">Meta paid · 2026-05</div>
+          
+          <div class="change down">▼ -37.2% MoM</div>
+          
+        </div>
+        <div class="card">
+          <div class="label">Paid Reach</div>
+          <div class="value">707,737</div>
+          <div class="sub">Meta paid</div>
+          
+          <div class="change up">▲ +3.4% MoM</div>
+          
+        </div>
+        <div class="card">
+          <div class="label">Paid Engagement</div>
+          <div class="value">1,333</div>
+          <div class="sub">Reactions + comments + shares + saves</div>
+          
+          <div class="change down">▼ -79.0% MoM</div>
+          
+        </div>
+        <div class="card">
+          <div class="label">Paid Link Clicks</div>
+          <div class="value">30,852</div>
+          <div class="sub">Meta paid</div>
+          
+          <div class="change down">▼ -35.8% MoM</div>
+          
+        </div>
+      </div>
+      <p style="font-size: 12px; color: var(--gray); margin: 8px 0 0; line-height: 1.5;">
+        Paid row sourced from Meta Ads Manager export — separate from organic to avoid mixing definitions. Paid YouTube and LinkedIn are not yet in the pipeline. Use the Paid Search and Paid Social sub-tabs for the full breakdown.
+      </p>
+      
+    </div>
+  </div>
+
   <!-- ====== INSTAGRAM ====== -->
   <div class="tab-content" id="tab-instagram">
     <div class="container">
+      <div class="qbr-data-note">
+        <strong>TODO:</strong> Pull in <strong>organic views</strong> for Instagram — the Views card needs the organic-views figure wired into the pipeline.
+      </div>
       <div class="cards">
+        
+  <div class="card">
+    <div class="label">Followers</div>
+    <div class="value">21,061</div>
+    
+    
+    <div class="change up">▲ +74, +0.4% MoM</div>
+    
+  </div>
+  
         
   <div class="card">
     <div class="label">Impressions</div>
@@ -1908,6 +1947,8 @@ Explore: https://hubs.ly/Q04</td>
     
   </div>
   
+      </div>
+      <div class="cards">
         
   <div class="card">
     <div class="label">Engagement Rate</div>
@@ -1918,8 +1959,6 @@ Explore: https://hubs.ly/Q04</td>
     
   </div>
   
-      </div>
-      <div class="cards three">
         
   <div class="card">
     <div class="label">Engagement</div>
@@ -1985,7 +2024,15 @@ Explore: https://hubs.ly/Q04</td>
         <p style="font-size: 13px; color: var(--gray); margin: -4px 0 16px;">
           How the reporting month's engagement splits across interaction types.
         </p>
-        <div class="cards three">
+        <div class="cards">
+          
+  <div class="card">
+    <div class="label">Likes</div>
+    <div class="value">0</div>
+    
+    
+  </div>
+  
           
   <div class="card">
     <div class="label">Comments</div>
@@ -4409,7 +4456,7 @@ Explore: https://hubs.ly/Q04</td><td class="num">1,097</td><td class="num">6</td
         
   <div class="card">
     <div class="label">Saves</div>
-    <div class="value">0</div>
+    <div class="value">1</div>
     
     
   </div>
@@ -4417,7 +4464,7 @@ Explore: https://hubs.ly/Q04</td><td class="num">1,097</td><td class="num">6</td
         
   <div class="card">
     <div class="label">Pin Clicks</div>
-    <div class="value">0</div>
+    <div class="value">2</div>
     
     
   </div>
@@ -4443,7 +4490,7 @@ Explore: https://hubs.ly/Q04</td><td class="num">1,097</td><td class="num">6</td
         
   <div class="card">
     <div class="label">Pins</div>
-    <div class="value">0</div>
+    <div class="value">5</div>
     
     
   </div>
@@ -6142,6 +6189,27 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
 
       
 
+      
+  
+    <div class="data-health">
+      <div class="dh-title">Reading these numbers</div>
+      <div class="dh-row">
+        <span class="dh-ok">✅ Safe to compare to last year:</span>
+        <span class="dh-metrics">active users · sessions · new users · conversions</span>
+      </div>
+      <div class="dh-row">
+        <span class="dh-warn">⚠ Not comparable to last year:</span>
+        <span class="dh-metrics">page views · bounce rate · engagement rate · engaged sessions · avg session time · product & design sessions</span>
+      </div>
+      <div class="dh-row">
+        <span class="dh-note">The 2025 baseline was inflated by a GA4 tag that was
+        tracking fixed Apr 9, 2026 — for the metrics above, read <strong>month-over-month</strong>,
+        not year-over-year. (Marked <span class="metric-warn">⚠</span> below.)</span>
+      </div>
+    </div>
+  
+  
+
       <div class="cards">
         
       <div class="card">
@@ -6154,7 +6222,9 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
+        
         <div class="change up">▲ 29,331, +36.9% YoY</div>
+        
         
       </div>
       
@@ -6169,13 +6239,15 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
+        
         <div class="change up">▲ 35,720, +38.6% YoY</div>
+        
         
       </div>
       
         
       <div class="card">
-        <div class="label">Page Views</div>
+        <div class="label">Page Views<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></div>
         <div class="value">188,352</div>
         
         
@@ -6184,12 +6256,13 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
-        <div class="change down">▼ -151,024, -44.5% YoY</div>
+        <div class="change yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ YoY n/c <span class="yoy-nc-sub">(vs broken 2025)</span></div>
+        
         
       </div>
       
         <div class="card">
-          <div class="label">Bounce Rate</div>
+          <div class="label">Bounce Rate<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></div>
           <div class="value">55.7%</div>
           <div class="sub">101s avg session</div>
           
@@ -6198,7 +6271,8 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
           
           
           
-          <div class="change down">▲ +1258.5% YoY</div>
+          <div class="change yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ YoY n/c <span class="yoy-nc-sub">(vs broken 2025)</span></div>
+          
           
         </div>
       </div>
@@ -6206,7 +6280,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
       <div class="cards">
         
       <div class="card">
-        <div class="label">Engaged Sessions</div>
+        <div class="label">Engaged Sessions<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></div>
         <div class="value">56,797</div>
         
         
@@ -6215,7 +6289,8 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
-        <div class="change down">▼ -31,814, -35.9% YoY</div>
+        <div class="change yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ YoY n/c <span class="yoy-nc-sub">(vs broken 2025)</span></div>
+        
         
       </div>
       
@@ -6230,12 +6305,14 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
+        
         <div class="change up">▲ 30,599, +40.1% YoY</div>
+        
         
       </div>
       
         <div class="card">
-          <div class="label">Engagement Rate</div>
+          <div class="label">Engagement Rate<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></div>
           <div class="value">44.3%</div>
           <div class="sub">Engaged / total sessions</div>
         </div>
@@ -6243,7 +6320,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
       <div class="card">
-        <div class="label">Product & Design Sessions</div>
+        <div class="label">Product & Design Sessions<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></div>
         <div class="value">40,693</div>
         <div class="sub">Design, projects, grills, ovens, warmers, smokers</div>
         
@@ -6252,7 +6329,8 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
-        <div class="change down">▼ -28,398, -41.1% YoY</div>
+        <div class="change yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ YoY n/c <span class="yoy-nc-sub">(vs broken 2025)</span></div>
+        
         
       </div>
       
@@ -6484,7 +6562,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
       <div class="section">
         <h3>Traffic Sources</h3>
         <p style="font-size: 15px; font-weight: 500; color: var(--charcoal); margin: -16px 0 8px; line-height: 1.4;">
-          google / cpc drives 61% of site traffic with 8,859 conversions — paid social remains the primary acquisition channel.
+          google / cpc drives 61% of site traffic with 9,082 conversions — paid social remains the primary acquisition channel.
         </p>
         <p style="font-size: 12px; color: var(--gray); margin-bottom: 20px;">
           MoM change compares active users to the prior month.
@@ -6506,7 +6584,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <td><strong>google / cpc</strong></td>
               <td class="num">66,454</td>
               <td class="num">43,685</td>
-              <td class="num">8,859</td>
+              <td class="num">9,082</td>
               <td class="num">
                 
                 
@@ -6532,7 +6610,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <td><strong>(direct) / (none)</strong></td>
               <td class="num">6,382</td>
               <td class="num">2,829</td>
-              <td class="num">504</td>
+              <td class="num">542</td>
               <td class="num">
                 
                 
@@ -6545,7 +6623,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <td><strong>google / organic</strong></td>
               <td class="num">4,651</td>
               <td class="num">4,396</td>
-              <td class="num">429</td>
+              <td class="num">537</td>
               <td class="num">
                 
                 
@@ -6558,7 +6636,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <td><strong>(not set)</strong></td>
               <td class="num">1,604</td>
               <td class="num">562</td>
-              <td class="num">56</td>
+              <td class="num">62</td>
               <td class="num">
                 
                 
@@ -6571,7 +6649,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <td><strong>ActiveCampaign / email</strong></td>
               <td class="num">1,255</td>
               <td class="num">1,325</td>
-              <td class="num">45</td>
+              <td class="num">160</td>
               <td class="num">
                 
                 
@@ -6597,7 +6675,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <td><strong>bing / cpc</strong></td>
               <td class="num">563</td>
               <td class="num">545</td>
-              <td class="num">72</td>
+              <td class="num">78</td>
               <td class="num">
                 
                 
@@ -6610,7 +6688,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <td><strong>bing / organic</strong></td>
               <td class="num">330</td>
               <td class="num">345</td>
-              <td class="num">89</td>
+              <td class="num">293</td>
               <td class="num">
                 
                 
@@ -6633,7 +6711,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <td><strong>chatgpt.com / (not set)</strong></td>
               <td class="num">208</td>
               <td class="num">126</td>
-              <td class="num">8</td>
+              <td class="num">14</td>
               <td class="num">
                 
                 
@@ -6675,7 +6753,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         <h3>Product Page Performance</h3>
         
         <p style="font-size: 15px; font-weight: 500; color: var(--charcoal); margin: -16px 0 20px; line-height: 1.4;">
-          Shokunin Kamado leads with 15,657 engaged sessions — this is where the strongest purchase intent is concentrated.
+          Shokunin Kamado leads with 15,657 engaged sessions — this is where the strongest purchase intent is concentrated. PMax is its top traffic source, driving 90% of those engaged sessions.
         </p>
         
         <table class="video-table collapsible-table" data-max-rows="5">
@@ -6696,18 +6774,18 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <td><strong>Hybrid Fire Grill</strong></td>
               <td class="num">15,548</td>
               <td class="num">35,875</td>
-              <td class="num">26,572</td>
+              <td class="num">20,684</td>
               <td class="num">
                 
                 
-                <span style="font-weight:700; color:#B33A2B;">-17%</span>
+                <span style="font-weight:700; color:#B33A2B;">-25%</span>
                 
               </td>
-              <td class="num">1,699</td>
+              <td class="num">7,587</td>
               <td class="num">
                 
                 
-                <span style="font-weight:700; color:#B33A2B;">-23%</span>
+                <span style="font-weight:700; color:#2D7A3A;">+14%</span>
                 
               </td>
             </tr>
@@ -6716,14 +6794,54 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <td><strong>Gaucho Grill</strong></td>
               <td class="num">5,089</td>
               <td class="num">11,187</td>
-              <td class="num">8,809</td>
+              <td class="num">6,958</td>
               <td class="num">
                 
                 
-                <span style="font-weight:700; color:#B33A2B;">-1%</span>
+                <span style="font-weight:700; color:#B33A2B;">-3%</span>
                 
               </td>
-              <td class="num">638</td>
+              <td class="num">2,489</td>
+              <td class="num">
+                
+                
+                <span style="font-weight:700; color:#2D7A3A;">+2%</span>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td><strong>Shokunin Kamado</strong></td>
+              <td class="num">15,657</td>
+              <td class="num">23,146</td>
+              <td class="num">17,380</td>
+              <td class="num">
+                
+                
+                <span style="font-weight:700; color:#2D7A3A;">+74%</span>
+                
+              </td>
+              <td class="num">2,236</td>
+              <td class="num">
+                
+                
+                <span style="font-weight:700; color:#2D7A3A;">+71%</span>
+                
+              </td>
+            </tr>
+            
+            <tr>
+              <td><strong>Pizza Oven</strong></td>
+              <td class="num">1,959</td>
+              <td class="num">6,287</td>
+              <td class="num">3,845</td>
+              <td class="num">
+                
+                
+                <span style="font-weight:700; color:#B33A2B;">-40%</span>
+                
+              </td>
+              <td class="num">1,414</td>
               <td class="num">
                 
                 
@@ -6733,61 +6851,21 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
             </tr>
             
             <tr>
-              <td><strong>Shokunin Kamado</strong></td>
-              <td class="num">15,657</td>
-              <td class="num">23,146</td>
-              <td class="num">18,525</td>
-              <td class="num">
-                
-                
-                <span style="font-weight:700; color:#2D7A3A;">+68%</span>
-                
-              </td>
-              <td class="num">1,091</td>
-              <td class="num">
-                
-                
-                <span style="font-weight:700; color:#2D7A3A;">+271%</span>
-                
-              </td>
-            </tr>
-            
-            <tr>
-              <td><strong>Pizza Oven</strong></td>
-              <td class="num">1,959</td>
-              <td class="num">6,287</td>
-              <td class="num">4,906</td>
-              <td class="num">
-                
-                
-                <span style="font-weight:700; color:#B33A2B;">-33%</span>
-                
-              </td>
-              <td class="num">353</td>
-              <td class="num">
-                
-                
-                <span style="font-weight:700; color:#B33A2B;">-46%</span>
-                
-              </td>
-            </tr>
-            
-            <tr>
               <td><strong>Echo Gas Grill</strong></td>
               <td class="num">10,474</td>
               <td class="num">27,805</td>
-              <td class="num">22,966</td>
+              <td class="num">21,238</td>
               <td class="num">
                 
                 
-                <span style="font-weight:700; color:#2D7A3A;">+160%</span>
+                <span style="font-weight:700; color:#2D7A3A;">+186%</span>
                 
               </td>
-              <td class="num">878</td>
+              <td class="num">2,606</td>
               <td class="num">
                 
                 
-                <span style="font-weight:700; color:#2D7A3A;">+13%</span>
+                <span style="font-weight:700; color:#2D7A3A;">+19%</span>
                 
               </td>
             </tr>
@@ -7173,10 +7251,10 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         <div class="insight-rec">Ensure the Hybrid Fire Grill page has strong conversion paths — this is where the most purchase intent is concentrated.</div>
       </div>
       
-      <div class="insight-card medium">
-        <div class="insight-headline">1,498 total conversions — down 19% from prior month</div>
-        <div class="insight-stat">Top conversion: Spec Sheet Download at 732 (was 535) | Add to Cart: N/A | Spec Sheet Download: 732 | Newsletter Signup: 536 | Dealer Locator: 138 | Catalog Download: 92</div>
-        <div class="insight-rec">Conversion decline warrants investigation — check if traffic quality changed or if site experience degraded.</div>
+      <div class="insight-card high">
+        <div class="insight-headline">2,376 total conversions — up 28% from prior month</div>
+        <div class="insight-stat">Top conversion: Dealer Locator at 1,016 (was 899) | Add to Cart: N/A | Dealer Locator: 1,016 | Spec Sheet Download: 732 | Newsletter Signup: 536 | Catalog Download: 92</div>
+        <div class="insight-rec">Only Dealer Locator and Spec Sheet Download are confirmed reliable this month. Add to Cart is shown as NA (over-firing); Newsletter Signup and Catalog Download are under validation — treat both as provisional, not final. Conversion momentum is positive across the board.</div>
       </div>
       
       <div class="insight-card high">
@@ -7209,7 +7287,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
 
       <h2 style="font-size: 28px; font-weight: 300; color: var(--charcoal); margin: 0 0 8px;">Conversion Events</h2>
       <p style="font-size: 15px; font-weight: 500; color: var(--charcoal); margin: 0 0 24px; line-height: 1.4;">
-        1,498 total conversions this month, down -19% from 1,850 last month. Excludes Add to Cart — conversion event under investigation. These five events are the strongest on-site purchase-intent signals.
+        2,376 total conversions this month, up +28% from 1,850 last month. Excludes Add to Cart — conversion event under investigation. These five events are the strongest on-site purchase-intent signals.
       </p>
 
       <div class="cards five">
@@ -7217,14 +7295,14 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         <div class="card">
           <div class="label">Dealer Locator</div>
           
-          <div class="value">138</div>
+          <div class="value">1,016</div>
           
           
-          <div class="change down">▼ -761, -84.6% MoM</div>
+          <div class="change up">▲ 117, +13.0% MoM</div>
           
           
           
-          <div class="change down">▼ -821, -85.6% YoY</div>
+          <div class="change up">▲ 57, +5.9% YoY</div>
           
           
         </div>
@@ -7302,20 +7380,20 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
             <tr>
               <td><strong>Dealer Locator</strong></td>
               
-              <td class="num">138</td>
+              <td class="num">1,016</td>
               <td class="num">899</td>
               <td class="num">
                 
                 
-                <span style="font-weight:700; color:#B33A2B;">-85%</span>
+                <span style="font-weight:700; color:#2D7A3A;">+13%</span>
                 
               </td>
-              <td class="num">852</td>
+              <td class="num">3,788</td>
               <td class="num">4,225</td>
               <td class="num">
                 
                 
-                <span style="font-weight:700; color:#B33A2B;">-80%</span>
+                <span style="font-weight:700; color:#B33A2B;">-10%</span>
                 
               </td>
               
@@ -7433,38 +7511,38 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
             
             <tr>
               <td><strong>Paid Search</strong></td>
-              <td class="num">710</td>
-              <td class="num">47.4%</td>
+              <td class="num">940</td>
+              <td class="num">39.6%</td>
             </tr>
             
             <tr>
               <td><strong>Organic Search</strong></td>
-              <td class="num">378</td>
-              <td class="num">25.2%</td>
+              <td class="num">692</td>
+              <td class="num">29.1%</td>
             </tr>
             
             <tr>
               <td><strong>Direct</strong></td>
-              <td class="num">287</td>
-              <td class="num">19.2%</td>
+              <td class="num">325</td>
+              <td class="num">13.7%</td>
             </tr>
             
             <tr>
               <td><strong>Referral</strong></td>
-              <td class="num">80</td>
-              <td class="num">5.3%</td>
+              <td class="num">260</td>
+              <td class="num">10.9%</td>
             </tr>
             
             <tr>
               <td><strong>Email</strong></td>
-              <td class="num">39</td>
-              <td class="num">2.6%</td>
+              <td class="num">154</td>
+              <td class="num">6.5%</td>
             </tr>
             
             <tr>
               <td><strong>Organic Social</strong></td>
               <td class="num">4</td>
-              <td class="num">0.3%</td>
+              <td class="num">0.2%</td>
             </tr>
             
           </tbody>
@@ -10788,6 +10866,26 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
 
           <div class="qbr-compare-card">
             <h4>Website (GA4)</h4>
+            
+  
+    <div class="data-health">
+      <div class="dh-title">Reading these numbers</div>
+      <div class="dh-row">
+        <span class="dh-ok">✅ Safe to compare to last year:</span>
+        <span class="dh-metrics">active users · sessions · new users · conversions</span>
+      </div>
+      <div class="dh-row">
+        <span class="dh-warn">⚠ Not comparable to last year:</span>
+        <span class="dh-metrics">page views · bounce rate · engagement rate · engaged sessions · avg session time · product & design sessions</span>
+      </div>
+      <div class="dh-row">
+        <span class="dh-note">The 2025 baseline was inflated by a GA4 tag that was
+        tracking fixed Apr 9, 2026 — for the metrics above, read <strong>month-over-month</strong>,
+        not year-over-year. (Marked <span class="metric-warn">⚠</span> below.)</span>
+      </div>
+    </div>
+  
+  
             <table class="qbr-compare-table">
               <thead>
                 <tr>
@@ -10806,6 +10904,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                 
                 
                 
+                
                 <tr>
                   <td class="metric-name">Active users</td>
                   <td>207,533</td>
@@ -10814,10 +10913,13 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                     <td class="delta up">+101.8%</td>
                   
                   
+                    
                     <td>175,897</td>
                     <td class="delta up">+18.0%</td>
+                    
                   
                 </tr>
+                
                 
                 
                 
@@ -10832,10 +10934,13 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                     <td class="delta up">+89.9%</td>
                   
                   
+                    
                     <td>210,636</td>
                     <td class="delta up">+12.7%</td>
+                    
                   
                 </tr>
+                
                 
                 
                 
@@ -10843,17 +10948,20 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                 
                 
                 <tr>
-                  <td class="metric-name">Engaged sessions</td>
+                  <td class="metric-name">Engaged sessions<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></td>
                   <td>220,825</td>
                   
                     <td>117,909</td>
                     <td class="delta up">+87.3%</td>
                   
                   
+                    
                     <td>201,317</td>
-                    <td class="delta up">+9.7%</td>
+                    <td class="delta yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ n/c</td>
+                    
                   
                 </tr>
+                
                 
                 
                 
@@ -10868,8 +10976,10 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                     <td class="delta up">+101.5%</td>
                   
                   
+                    
                     <td>172,727</td>
                     <td class="delta up">+17.8%</td>
+                    
                   
                 </tr>
                 
@@ -10878,16 +10988,19 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                 
                 
                 
+                
                 <tr>
-                  <td class="metric-name">Product & Design Sessions</td>
+                  <td class="metric-name">Product & Design Sessions<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></td>
                   <td>165,261</td>
                   
                     <td>71,361</td>
                     <td class="delta up">+131.6%</td>
                   
                   
+                    
                     <td>161,486</td>
-                    <td class="delta up">+2.3%</td>
+                    <td class="delta yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ n/c</td>
+                    
                   
                 </tr>
                 
@@ -11799,7 +11912,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
   </div>
 
   <!-- ====== Monthly ====== -->
-  <div class="tab-content" id="tab-monthly">
+  <div class="tab-content active" id="tab-monthly">
     <div class="container">
 
       
@@ -11896,17 +12009,17 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
           
           
           <div class="mover-card">
-            <div class="mover-eyebrow">Conversions</div>
-            <div class="mover-label">Dealer Locator</div>
-            <div class="mover-current">138</div>
+            <div class="mover-eyebrow">Paid Search</div>
+            <div class="mover-label">CPC</div>
+            <div class="mover-current">$0.50</div>
             <div class="mover-deltas">
-              <span class="mover-chip bad"><span class="mover-chip-label">MoM</span>-85%</span>
+              <span class="mover-chip good"><span class="mover-chip-label">MoM</span>-63%</span>
               
             </div>
             
-            <div class="mover-driver bad">
+            <div class="mover-driver good">
               <span class="mover-driver-icon">▼</span>
-              <span class="mover-driver-text">Dealer Locator down 899 → 138 MoM.</span>
+              <span class="mover-driver-text">Paid Search CPC $1.33 → $0.50 MoM (more efficient).</span>
             </div>
             
           </div>
@@ -11958,20 +12071,20 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               
               <div class="funnel-drop">
                 <span class="funnel-arrow">&darr;</span>
-                <span class="funnel-rate">1.49%</span>
+                <span class="funnel-rate">2.36%</span>
                 <span class="funnel-rate-label">Conversion</span>
               </div>
               <div class="funnel-stage funnel-stage-3">
                 <div class="funnel-label">Website Actions</div>
-                <div class="funnel-value">1.5K</div>
-                <div class="funnel-raw">1,498</div>
+                <div class="funnel-value">2.4K</div>
+                <div class="funnel-raw">2,376</div>
               </div>
               
               
               
               <div class="funnel-deltas">
-                <span class="delta-chip down"><span class="delta-label">MoM</span> -42.9%</span>
-                <span class="delta-chip down"><span class="delta-label">YoY</span> -58.2%</span>
+                <span class="delta-chip down"><span class="delta-label">MoM</span> -9.4%</span>
+                <span class="delta-chip down"><span class="delta-label">YoY</span> -33.6%</span>
               </div>
               
             </div>
@@ -12116,12 +12229,17 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               
               <div class="funnel-narrative">
                 <span class="fn-tag">volume-led</span>
-                <div class="fn-takeaway">Online conversion tracking discrepancies this month — a fix is expected within the next few days, so treat conversion figures as provisional.</div>
-                <div class="fn-detail">Add to Cart is over-firing and is shown as NA; the remaining events are being validated.</div>
+                <div class="fn-takeaway">Online conversion tracking discrepancies this month for Add to Cart, Newsletter Signup and Catalog Download — a fix is expected within the next few days, so treat those figures as provisional. Only Dealer Locator and Spec Sheet Download are confirmed reliable for May 2026.</div>
+                <div class="fn-detail">Add to Cart is over-firing and is shown as NA; Newsletter Signup and Catalog Download are still shown but under validation. Only Dealer Locator and Spec Sheet Download are confirmed for May 2026.</div>
               </div>
               
               <div class="chart-subtitle">Top events</div>
               <ul class="qbr-driver-list">
+                
+                <li>
+                  <span class="driver-label">Dealer Locator</span>
+                  <span class="driver-value">1,016</span>
+                </li>
                 
                 <li>
                   <span class="driver-label">Spec Sheet Download</span>
@@ -12131,11 +12249,6 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                 <li>
                   <span class="driver-label">Newsletter Signup</span>
                   <span class="driver-value">536</span>
-                </li>
-                
-                <li>
-                  <span class="driver-label">Dealer Locator</span>
-                  <span class="driver-value">138</span>
                 </li>
                 
                 <li>
@@ -12151,17 +12264,17 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                   
                   <li>
                     <span class="driver-label">google / cpc</span>
-                    <span class="driver-value">655</span>
+                    <span class="driver-value">878</span>
                   </li>
                   
                   <li>
                     <span class="driver-label">google / organic</span>
-                    <span class="driver-value">284</span>
+                    <span class="driver-value">392</span>
                   </li>
                   
                   <li>
                     <span class="driver-label">bing / organic</span>
-                    <span class="driver-value">68</span>
+                    <span class="driver-value">272</span>
                   </li>
                   
                 </ul>
@@ -12394,14 +12507,14 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
           <div class="card">
             <div class="label">Dealer Locator</div>
             
-            <div class="value">138</div>
+            <div class="value">1,016</div>
             
             
-            <div class="change down">▼ -761, -84.6% MoM</div>
+            <div class="change up">▲ 117, +13.0% MoM</div>
             
             
             
-            <div class="change down">▼ -821, -85.6% YoY</div>
+            <div class="change up">▲ 57, +5.9% YoY</div>
             
             
           </div>
@@ -12485,36 +12598,36 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               
               <tr>
                 <td class="metric-name">Paid Search</td>
-                <td>699</td>
-                <td>46.7%</td>
+                <td>928</td>
+                <td>39.1%</td>
                 <td>3,052</td>
-                <td class="delta down strong">-77.1%</td>
+                <td class="delta down strong">-69.6%</td>
                 <td>1,654</td>
-                <td class="delta down strong">-57.7%</td>
+                <td class="delta down strong">-43.9%</td>
               </tr>
               
               
               
               <tr>
                 <td class="metric-name">Direct</td>
-                <td>283</td>
-                <td>18.9%</td>
+                <td>321</td>
+                <td>13.5%</td>
                 <td>311</td>
-                <td class="delta down">-9.0%</td>
+                <td class="delta up">+3.2%</td>
                 <td>545</td>
-                <td class="delta down strong">-48.1%</td>
+                <td class="delta down strong">-41.1%</td>
               </tr>
               
               
               
               <tr>
                 <td class="metric-name">Organic Search</td>
-                <td>370</td>
-                <td>24.7%</td>
+                <td>682</td>
+                <td>28.7%</td>
                 <td>421</td>
-                <td class="delta down strong">-12.1%</td>
+                <td class="delta up strong">+62.0%</td>
                 <td>985</td>
-                <td class="delta down strong">-62.4%</td>
+                <td class="delta down strong">-30.8%</td>
               </tr>
               
               
@@ -12533,12 +12646,12 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               
               <tr>
                 <td class="metric-name">Email</td>
-                <td>38</td>
-                <td>2.5%</td>
+                <td>153</td>
+                <td>6.4%</td>
                 <td>64</td>
-                <td class="delta down strong">-40.6%</td>
+                <td class="delta up strong">+139.1%</td>
                 <td>152</td>
-                <td class="delta down strong">-75.0%</td>
+                <td class="delta up">+0.7%</td>
               </tr>
               
               
@@ -12546,7 +12659,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               <tr>
                 <td class="metric-name">Organic Social</td>
                 <td>4</td>
-                <td>0.3%</td>
+                <td>0.2%</td>
                 <td>1</td>
                 <td class="delta up strong">+300.0%</td>
                 <td>1</td>
@@ -12557,34 +12670,34 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               
               <tr>
                 <td class="metric-name">Referral</td>
-                <td>79</td>
-                <td>5.3%</td>
+                <td>257</td>
+                <td>10.8%</td>
                 <td>42</td>
-                <td class="delta up strong">+88.1%</td>
+                <td class="delta up strong">+511.9%</td>
                 <td>147</td>
-                <td class="delta down strong">-46.3%</td>
+                <td class="delta up strong">+74.8%</td>
               </tr>
               
               
               
               <tr>
                 <td class="metric-name">Unknown</td>
-                <td>25</td>
-                <td>1.7%</td>
+                <td>31</td>
+                <td>1.3%</td>
                 <td>73</td>
-                <td class="delta down strong">-65.8%</td>
+                <td class="delta down strong">-57.5%</td>
                 <td>65</td>
-                <td class="delta down strong">-61.5%</td>
+                <td class="delta down strong">-52.3%</td>
               </tr>
               
               <tr class="qbr-channel-totals" data-anchor="bottom">
                 <td class="metric-name">TOTAL</td>
-                <td>1,498</td>
+                <td>2,376</td>
                 <td>100%</td>
                 <td>4,040</td>
-                <td class="delta down">-62.9%</td>
+                <td class="delta down">-41.2%</td>
                 <td>3,554</td>
-                <td class="delta down">-57.9%</td>
+                <td class="delta down">-33.1%</td>
               </tr>
             </tbody>
           </table>
@@ -12617,6 +12730,26 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
     </div>
   
   
+        
+  
+    <div class="data-health">
+      <div class="dh-title">Reading these numbers</div>
+      <div class="dh-row">
+        <span class="dh-ok">✅ Safe to compare to last year:</span>
+        <span class="dh-metrics">active users · sessions · new users · conversions</span>
+      </div>
+      <div class="dh-row">
+        <span class="dh-warn">⚠ Not comparable to last year:</span>
+        <span class="dh-metrics">page views · bounce rate · engagement rate · engaged sessions · avg session time · product & design sessions</span>
+      </div>
+      <div class="dh-row">
+        <span class="dh-note">The 2025 baseline was inflated by a GA4 tag that was
+        tracking fixed Apr 9, 2026 — for the metrics above, read <strong>month-over-month</strong>,
+        not year-over-year. (Marked <span class="metric-warn">⚠</span> below.)</span>
+      </div>
+    </div>
+  
+  
         <div class="cards">
           
       <div class="card">
@@ -12629,7 +12762,9 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
+        
         <div class="change up">▲ 29,331, +36.9% YoY</div>
+        
         
       </div>
       
@@ -12644,13 +12779,15 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
+        
         <div class="change up">▲ 35,720, +38.6% YoY</div>
+        
         
       </div>
       
           
       <div class="card">
-        <div class="label">Page Views</div>
+        <div class="label">Page Views<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></div>
         <div class="value">188,352</div>
         
         
@@ -12659,12 +12796,13 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
-        <div class="change down">▼ -151,024, -44.5% YoY</div>
+        <div class="change yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ YoY n/c <span class="yoy-nc-sub">(vs broken 2025)</span></div>
+        
         
       </div>
       
           <div class="card">
-            <div class="label">Bounce Rate</div>
+            <div class="label">Bounce Rate<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></div>
             <div class="value">55.7%</div>
             <div class="sub">101s avg session</div>
             
@@ -12673,14 +12811,15 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
             
             
             
-            <div class="change down">▲ +1258.5% YoY</div>
+            <div class="change yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ YoY n/c <span class="yoy-nc-sub">(vs broken 2025)</span></div>
+            
             
           </div>
         </div>
         <div class="cards">
           
       <div class="card">
-        <div class="label">Engaged Sessions</div>
+        <div class="label">Engaged Sessions<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></div>
         <div class="value">56,797</div>
         
         
@@ -12689,7 +12828,8 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
-        <div class="change down">▼ -31,814, -35.9% YoY</div>
+        <div class="change yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ YoY n/c <span class="yoy-nc-sub">(vs broken 2025)</span></div>
+        
         
       </div>
       
@@ -12704,19 +12844,21 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
+        
         <div class="change up">▲ 30,599, +40.1% YoY</div>
+        
         
       </div>
       
           <div class="card">
-            <div class="label">Engagement Rate</div>
+            <div class="label">Engagement Rate<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></div>
             <div class="value">44.3%</div>
             <div class="sub">Engaged / total sessions</div>
           </div>
           
           
       <div class="card">
-        <div class="label">Product &amp; Design Sessions</div>
+        <div class="label">Product &amp; Design Sessions<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></div>
         <div class="value">40,693</div>
         <div class="sub">Design, projects, grills, ovens, warmers, smokers</div>
         
@@ -12725,7 +12867,8 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         
         
         
-        <div class="change down">▼ -28,398, -41.1% YoY</div>
+        <div class="change yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ YoY n/c <span class="yoy-nc-sub">(vs broken 2025)</span></div>
+        
         
       </div>
       
@@ -12743,7 +12886,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         <div class="qbr-channel-summary" style="margin-top:28px;">
           
           <p style="font-size:15px; font-weight:500; color:var(--charcoal); margin:0 0 16px; line-height:1.4;">
-            Shokunin Kamado leads with 15,657 engaged sessions — this is where the strongest purchase intent is concentrated.
+            Shokunin Kamado leads with 15,657 engaged sessions — this is where the strongest purchase intent is concentrated. PMax is its top traffic source, driving 90% of those engaged sessions.
           </p>
           
           <table class="video-table collapsible-table" data-max-rows="5">
@@ -12764,18 +12907,18 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                 <td><strong>Hybrid Fire Grill</strong></td>
                 <td class="num">15,548</td>
                 <td class="num">35,875</td>
-                <td class="num">26,572</td>
+                <td class="num">20,684</td>
                 <td class="num">
                   
                   
-                  <span style="font-weight:700; color:#B33A2B;">-17%</span>
+                  <span style="font-weight:700; color:#B33A2B;">-25%</span>
                   
                 </td>
-                <td class="num">1,699</td>
+                <td class="num">7,587</td>
                 <td class="num">
                   
                   
-                  <span style="font-weight:700; color:#B33A2B;">-23%</span>
+                  <span style="font-weight:700; color:#2D7A3A;">+14%</span>
                   
                 </td>
               </tr>
@@ -12784,14 +12927,54 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                 <td><strong>Gaucho Grill</strong></td>
                 <td class="num">5,089</td>
                 <td class="num">11,187</td>
-                <td class="num">8,809</td>
+                <td class="num">6,958</td>
                 <td class="num">
                   
                   
-                  <span style="font-weight:700; color:#B33A2B;">-1%</span>
+                  <span style="font-weight:700; color:#B33A2B;">-3%</span>
                   
                 </td>
-                <td class="num">638</td>
+                <td class="num">2,489</td>
+                <td class="num">
+                  
+                  
+                  <span style="font-weight:700; color:#2D7A3A;">+2%</span>
+                  
+                </td>
+              </tr>
+              
+              <tr>
+                <td><strong>Shokunin Kamado</strong></td>
+                <td class="num">15,657</td>
+                <td class="num">23,146</td>
+                <td class="num">17,380</td>
+                <td class="num">
+                  
+                  
+                  <span style="font-weight:700; color:#2D7A3A;">+74%</span>
+                  
+                </td>
+                <td class="num">2,236</td>
+                <td class="num">
+                  
+                  
+                  <span style="font-weight:700; color:#2D7A3A;">+71%</span>
+                  
+                </td>
+              </tr>
+              
+              <tr>
+                <td><strong>Pizza Oven</strong></td>
+                <td class="num">1,959</td>
+                <td class="num">6,287</td>
+                <td class="num">3,845</td>
+                <td class="num">
+                  
+                  
+                  <span style="font-weight:700; color:#B33A2B;">-40%</span>
+                  
+                </td>
+                <td class="num">1,414</td>
                 <td class="num">
                   
                   
@@ -12801,61 +12984,21 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               </tr>
               
               <tr>
-                <td><strong>Shokunin Kamado</strong></td>
-                <td class="num">15,657</td>
-                <td class="num">23,146</td>
-                <td class="num">18,525</td>
-                <td class="num">
-                  
-                  
-                  <span style="font-weight:700; color:#2D7A3A;">+68%</span>
-                  
-                </td>
-                <td class="num">1,091</td>
-                <td class="num">
-                  
-                  
-                  <span style="font-weight:700; color:#2D7A3A;">+271%</span>
-                  
-                </td>
-              </tr>
-              
-              <tr>
-                <td><strong>Pizza Oven</strong></td>
-                <td class="num">1,959</td>
-                <td class="num">6,287</td>
-                <td class="num">4,906</td>
-                <td class="num">
-                  
-                  
-                  <span style="font-weight:700; color:#B33A2B;">-33%</span>
-                  
-                </td>
-                <td class="num">353</td>
-                <td class="num">
-                  
-                  
-                  <span style="font-weight:700; color:#B33A2B;">-46%</span>
-                  
-                </td>
-              </tr>
-              
-              <tr>
                 <td><strong>Echo Gas Grill</strong></td>
                 <td class="num">10,474</td>
                 <td class="num">27,805</td>
-                <td class="num">22,966</td>
+                <td class="num">21,238</td>
                 <td class="num">
                   
                   
-                  <span style="font-weight:700; color:#2D7A3A;">+160%</span>
+                  <span style="font-weight:700; color:#2D7A3A;">+186%</span>
                   
                 </td>
-                <td class="num">878</td>
+                <td class="num">2,606</td>
                 <td class="num">
                   
                   
-                  <span style="font-weight:700; color:#2D7A3A;">+13%</span>
+                  <span style="font-weight:700; color:#2D7A3A;">+19%</span>
                   
                 </td>
               </tr>
@@ -12886,7 +13029,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
   
     <div class="section-takeaway">
       <div class="st-eyebrow">Key takeaway</div>
-      <div class="st-body">128,351 on-site sessions this month; 63 grill units sold across all channels — the largest on-site leak this month was Sessions → View Item (70.9% advance); sessions led by Cross-network (Google Ads).</div>
+      <div class="st-body">The website drew 128,351 sessions in May, and 71% reached a product page — strong, healthy interest at the top of the funnel. Direct on-site purchases stay small by design (4 cookers): a high-ticket grill is a considered purchase that closes through dealers, where 63 cookers sold across all channels this month. Read the on-site funnel as a demand-and-research engine, not a checkout — and note that mid-funnel drop-off can't be measured in May while Add-to-Cart tracking is under investigation. Sessions were led by Cross-network (Google Ads).</div>
       
     </div>
   
@@ -13531,75 +13674,75 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               
               <tr>
                 <td class="metric-name">Paid Search</td>
-                <td>36</td>
+                <td>265</td>
                 <td>0</td>
                 <td class="delta up">+0.0%</td>
                 <td>462</td>
-                <td class="delta down strong">-92.2%</td>
+                <td class="delta down strong">-42.6%</td>
               </tr>
               
               
               
               <tr>
                 <td class="metric-name">Direct</td>
-                <td>6</td>
+                <td>44</td>
                 <td>0</td>
                 <td class="delta up">+0.0%</td>
                 <td>78</td>
-                <td class="delta down strong">-92.3%</td>
+                <td class="delta down strong">-43.6%</td>
               </tr>
               
               
               
               <tr>
                 <td class="metric-name">Organic Search</td>
-                <td>49</td>
+                <td>361</td>
                 <td>0</td>
                 <td class="delta up">+0.0%</td>
                 <td>316</td>
-                <td class="delta down strong">-84.5%</td>
+                <td class="delta up strong">+14.2%</td>
               </tr>
               
               
               
               <tr>
                 <td class="metric-name">Email</td>
-                <td>18</td>
+                <td>133</td>
                 <td>0</td>
                 <td class="delta up">+0.0%</td>
                 <td>70</td>
-                <td class="delta down strong">-74.3%</td>
+                <td class="delta up strong">+90.0%</td>
               </tr>
               
               
               
               <tr>
                 <td class="metric-name">Referral</td>
-                <td>28</td>
+                <td>206</td>
                 <td>0</td>
                 <td class="delta up">+0.0%</td>
                 <td>23</td>
-                <td class="delta up strong">+21.7%</td>
+                <td class="delta up strong">+795.7%</td>
               </tr>
               
               
               
               <tr>
                 <td class="metric-name">Unknown</td>
-                <td>1</td>
+                <td>7</td>
                 <td>0</td>
                 <td class="delta up">+0.0%</td>
                 <td>10</td>
-                <td class="delta down strong">-90.0%</td>
+                <td class="delta down strong">-30.0%</td>
               </tr>
               
               <tr class="qbr-channel-totals">
                 <td class="metric-name">Dealer Locator TOTAL</td>
-                <td>138</td>
+                <td>1,016</td>
                 <td>0</td>
                 <td class="delta up">+0.0%</td>
                 <td>959</td>
-                <td class="delta down strong">-85.6%</td>
+                <td class="delta up">+5.9%</td>
               </tr>
               
             </tbody>
@@ -14437,6 +14580,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               
               
               
+              
               <tr>
                 <td class="metric-name">Active users</td>
                 <td>108,772</td>
@@ -14445,10 +14589,13 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                   <td class="delta up">+37.2%</td>
                 
                 
+                  
                   <td>79,441</td>
                   <td class="delta up">+36.9%</td>
+                  
                 
               </tr>
+              
               
               
               
@@ -14463,10 +14610,13 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                   <td class="delta up">+45.0%</td>
                 
                 
+                  
                   <td>92,425</td>
                   <td class="delta up">+38.6%</td>
+                  
                 
               </tr>
+              
               
               
               
@@ -14474,17 +14624,20 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               
               
               <tr>
-                <td class="metric-name">Engaged sessions</td>
+                <td class="metric-name">Engaged sessions<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></td>
                 <td>56,797</td>
                 
                   <td>51,017</td>
                   <td class="delta up">+11.3%</td>
                 
                 
+                  
                   <td>88,611</td>
-                  <td class="delta down">-35.9%</td>
+                  <td class="delta yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ n/c</td>
+                  
                 
               </tr>
+              
               
               
               
@@ -14499,8 +14652,10 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
                   <td class="delta up">+40.0%</td>
                 
                 
+                  
                   <td>74,943</td>
                   <td class="delta up">+42.7%</td>
+                  
                 
               </tr>
               
@@ -14509,16 +14664,19 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               
               
               
+              
               <tr>
-                <td class="metric-name">Product & Design Sessions</td>
+                <td class="metric-name">Product & Design Sessions<span class="metric-warn" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠</span></td>
                 <td>40,693</td>
                 
                   <td>39,893</td>
                   <td class="delta up">+2.0%</td>
                 
                 
+                  
                   <td>69,091</td>
-                  <td class="delta down">-41.1%</td>
+                  <td class="delta yoy-broken" title="The 2025 baseline was inflated by a GA4 tag firing too often (fixed Apr 9, 2026), so this year-over-year change is a measurement artifact, not a real shift in behavior. Read month-over-month instead.">⚠ n/c</td>
+                  
                 
               </tr>
               
@@ -14537,13 +14695,13 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
   </div>
 
   <div class="footer">
-    Generated 2026-06-10 18:10 &mdash; Kalamazoo Outdoor Gourmet
+    Generated 2026-06-11 15:38 &mdash; Kalamazoo Outdoor Gourmet
   </div>
 
   <script>
     Chart.register(ChartDataLabels);
 
-    const metrics = [{"month": "2026-03", "ig_impressions": "41,569", "ig_reach": "8,083", "ig_views": "2128264", "ig_engagement": "392", "ig_engagement_rate": "0.04", "ig_profile_views": "2015", "ig_posts_count": "6", "ig_reels_count": "3", "fb_followers": "19833", "fb_page_views": "615", "fb_impressions": "7,783", "fb_engagement": "98", "fb_engagement_rate": "0.03", "fb_clicks": "53", "fb_posts_count": "6", "yt_views": "15,026", "yt_watch_time_minutes": "378032.6", "yt_likes": "1055", "yt_comments": "10", "yt_shares": "135", "yt_engagement": "1200", "yt_engagement_rate": "0.07", "yt_subscribers_gained": "0", "yt_subscribers_lost": "0", "yt_net_subscribers": "0", "yt_avg_view_duration": "0.28", "li_impressions": "5131", "li_clicks": "395", "li_likes": "131", "li_shares": "10", "li_engagement": "536", "li_engagement_rate": "2.72", "li_video_views": "1578", "li_posts_count": "8", "email_total_subscribers": "141322", "email_campaigns_sent": "9", "email_total_sends": "221707", "email_avg_open_rate": "27.5", "email_avg_click_rate": "12.3", "email_avg_ctor": "44.8", "email_total_clicks": "27352", "email_total_unsubs": "791", "total_followers": 78455, "total_impressions": 69509, "total_engagement": 2226, "total_engagement_rate": 3.2, "run_timestamp": "2026-04-09T11:50:16", "ig_followers": "20801", "yt_subscribers": "33114", "li_followers": "4707", "pin_followers": ""}, {"month": "2026-04", "ig_impressions": "35,331", "ig_reach": "5,219", "ig_views": "2134097", "ig_engagement": "201", "ig_engagement_rate": "0.01", "ig_profile_views": "1952", "ig_posts_count": "5", "ig_reels_count": "3", "fb_followers": "19808", "fb_page_views": "392", "fb_impressions": "4,586", "fb_engagement": "61", "fb_engagement_rate": "0", "fb_clicks": "30", "fb_posts_count": "5", "yt_views": "17,009", "yt_watch_time_minutes": "1148588.6", "yt_likes": "594", "yt_comments": "8", "yt_shares": "141", "yt_engagement": "743", "yt_engagement_rate": "0.05", "yt_subscribers_gained": "0", "yt_subscribers_lost": "0", "yt_net_subscribers": "0", "yt_avg_view_duration": "0.72", "li_impressions": "2880", "li_clicks": "255", "li_likes": "97", "li_shares": "3", "li_engagement": "355", "li_engagement_rate": "4.13", "li_video_views": "641", "li_posts_count": "3", "email_total_subscribers": "139859", "email_campaigns_sent": "13", "email_total_sends": "240391", "email_avg_open_rate": "26.4", "email_avg_click_rate": "8.3", "email_avg_ctor": "31.5", "email_total_clicks": "20008", "email_total_unsubs": "766", "total_followers": 78731, "total_impressions": 59806, "total_engagement": 1360, "total_engagement_rate": 2.27, "run_timestamp": "2026-05-05T14:43:08", "ig_followers": "20987", "yt_subscribers": "33164", "li_followers": "4772", "pin_followers": ""}, {"month": "2026-05", "ig_impressions": "31,700", "ig_reach": "4,267", "ig_views": "1519324", "ig_engagement": "204", "ig_engagement_rate": "0.02", "ig_profile_views": "1264", "ig_posts_count": "4", "ig_reels_count": "1", "fb_followers": "19811", "fb_page_views": "738", "fb_impressions": "5,415", "fb_engagement": "100", "fb_engagement_rate": "0.01", "fb_clicks": "51", "fb_posts_count": "5", "yt_views": "32,712", "yt_watch_time_minutes": "436020", "yt_likes": "1517", "yt_comments": "23", "yt_shares": "172", "yt_engagement": "1712", "yt_engagement_rate": "0.2", "yt_subscribers_gained": "0", "yt_subscribers_lost": "0", "yt_net_subscribers": "0", "yt_avg_view_duration": "0.51", "li_impressions": "1490", "li_clicks": "87", "li_likes": "37", "li_shares": "1", "li_engagement": "125", "li_engagement_rate": "0", "li_video_views": "0", "li_posts_count": "0", "email_total_subscribers": "144732", "email_campaigns_sent": "5", "email_total_sends": "77244", "email_avg_open_rate": "25.7", "email_avg_click_rate": "18.4", "email_avg_ctor": "71.6", "email_total_clicks": "14236", "email_total_unsubs": "188", "total_followers": 82107, "total_impressions": 71317, "total_engagement": 2141, "total_engagement_rate": 3.0, "run_timestamp": "2026-06-04T15:13:58", "ig_followers": "21061", "yt_subscribers": "33100", "li_followers": "4811", "pin_followers": "3324", "pin_impressions": "63", "pin_engagement": "3"}];
+    const metrics = [{"month": "2026-03", "ig_impressions": "41,569", "ig_reach": "8,083", "ig_views": "2128264", "ig_engagement": "392", "ig_engagement_rate": "0.04", "ig_profile_views": "2015", "ig_posts_count": "6", "ig_reels_count": "3", "fb_followers": "19833", "fb_page_views": "615", "fb_impressions": "7,783", "fb_engagement": "98", "fb_engagement_rate": "0.03", "fb_clicks": "53", "fb_posts_count": "6", "yt_views": "15,026", "yt_watch_time_minutes": "378032.6", "yt_likes": "1055", "yt_comments": "10", "yt_shares": "135", "yt_engagement": "1200", "yt_engagement_rate": "0.07", "yt_subscribers_gained": "0", "yt_subscribers_lost": "0", "yt_net_subscribers": "0", "yt_avg_view_duration": "0.28", "li_impressions": "5131", "li_clicks": "395", "li_likes": "131", "li_shares": "10", "li_engagement": "536", "li_engagement_rate": "2.72", "li_video_views": "1578", "li_posts_count": "8", "email_total_subscribers": "141322", "email_campaigns_sent": "9", "email_total_sends": "221707", "email_avg_open_rate": "27.5", "email_avg_click_rate": "12.3", "email_avg_ctor": "44.8", "email_total_clicks": "27352", "email_total_unsubs": "791", "total_followers": 78455, "total_impressions": 69509, "total_engagement": 2226, "total_engagement_rate": 3.2, "run_timestamp": "2026-04-09T11:50:16", "ig_followers": "20801", "yt_subscribers": "33114", "li_followers": "4707", "pin_followers": "", "pin_impressions": "", "pin_saves": "", "pin_clicks": "", "pin_outbound_clicks": "", "pin_engagement": "", "pin_posts": ""}, {"month": "2026-04", "ig_impressions": "35,331", "ig_reach": "5,219", "ig_views": "2134097", "ig_engagement": "201", "ig_engagement_rate": "0.01", "ig_profile_views": "1952", "ig_posts_count": "5", "ig_reels_count": "3", "fb_followers": "19808", "fb_page_views": "392", "fb_impressions": "4,586", "fb_engagement": "61", "fb_engagement_rate": "0", "fb_clicks": "30", "fb_posts_count": "5", "yt_views": "17,009", "yt_watch_time_minutes": "1148588.6", "yt_likes": "594", "yt_comments": "8", "yt_shares": "141", "yt_engagement": "743", "yt_engagement_rate": "0.05", "yt_subscribers_gained": "0", "yt_subscribers_lost": "0", "yt_net_subscribers": "0", "yt_avg_view_duration": "0.72", "li_impressions": "2880", "li_clicks": "255", "li_likes": "97", "li_shares": "3", "li_engagement": "355", "li_engagement_rate": "4.13", "li_video_views": "641", "li_posts_count": "3", "email_total_subscribers": "139859", "email_campaigns_sent": "13", "email_total_sends": "240391", "email_avg_open_rate": "26.4", "email_avg_click_rate": "8.3", "email_avg_ctor": "31.5", "email_total_clicks": "20008", "email_total_unsubs": "766", "total_followers": 78731, "total_impressions": 59806, "total_engagement": 1360, "total_engagement_rate": 2.27, "run_timestamp": "2026-05-05T14:43:08", "ig_followers": "20987", "yt_subscribers": "33164", "li_followers": "4772", "pin_followers": "", "pin_impressions": "", "pin_saves": "", "pin_clicks": "", "pin_outbound_clicks": "", "pin_engagement": "", "pin_posts": ""}, {"month": "2026-05", "ig_impressions": "31,700", "ig_reach": "4,267", "ig_views": "1519324", "ig_engagement": "204", "ig_engagement_rate": "0.02", "ig_profile_views": "1264", "ig_posts_count": "4", "ig_reels_count": "1", "fb_followers": "19811", "fb_page_views": "738", "fb_impressions": "5,415", "fb_engagement": "100", "fb_engagement_rate": "0.01", "fb_clicks": "51", "fb_posts_count": "5", "yt_views": "32,712", "yt_watch_time_minutes": "436020", "yt_likes": "1517", "yt_comments": "23", "yt_shares": "172", "yt_engagement": "1712", "yt_engagement_rate": "0.2", "yt_subscribers_gained": "0", "yt_subscribers_lost": "0", "yt_net_subscribers": "0", "yt_avg_view_duration": "0.51", "li_impressions": "1490", "li_clicks": "87", "li_likes": "37", "li_shares": "1", "li_engagement": "125", "li_engagement_rate": "0", "li_video_views": "0", "li_posts_count": "0", "email_total_subscribers": "144732", "email_campaigns_sent": "5", "email_total_sends": "77244", "email_avg_open_rate": "25.7", "email_avg_click_rate": "18.4", "email_avg_ctor": "71.6", "email_total_clicks": "14236", "email_total_unsubs": "188", "total_followers": 82107, "total_impressions": 71317, "total_engagement": 2141, "total_engagement_rate": 3.0, "run_timestamp": "2026-06-04T15:13:58", "ig_followers": "21061", "yt_subscribers": "33100", "li_followers": "4811", "pin_followers": "3324", "pin_impressions": "63", "pin_saves": "1", "pin_clicks": "2", "pin_outbound_clicks": "0", "pin_engagement": "3", "pin_posts": "5"}];
     const months = metrics.map(r => r.month);
     const last = metrics[metrics.length - 1];
 
@@ -14588,6 +14746,8 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
     // default). Groups reveal a secondary sub-nav bar reusing the AI SEO subnav
     // visual pattern. (AI SEO's INTERNAL .aiseo-subtab nav is separate.)
     const GROUP_SUBNAV_LABELS = {
+      'tab-organic-overview': 'Overview',
+      'tab-paid-overview': 'Overview',
       'tab-instagram': 'Instagram',
       'tab-facebook': 'Facebook',
       'tab-youtube': 'YouTube',
@@ -14655,6 +14815,12 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
     document.querySelectorAll('.tab').forEach(tab => {
       tab.addEventListener('click', () => activateTab(tab));
     });
+
+    // The default-active tab is now a group (Organic Marketing), so render its
+    // sub-nav bar and show its Overview member on initial page load — otherwise
+    // the sub-nav only appears after a click.
+    const _defaultTab = document.querySelector('.tab.active');
+    if (_defaultTab && _defaultTab.dataset.group) activateTab(_defaultTab);
 
     // Reporting-period banner at the top of every tab. Most tabs reflect the
     // monthly reporting window; Monthly and QBR have their own (monthly /
@@ -15012,7 +15178,7 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
     }
 
     // ====== CHANNEL MIX CHART (Conversion tab) ======
-    const channelMix = {"months": ["2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05"], "series": [{"channel": "Paid Social", "values": [76, 7, 10, 68, 76, 0]}, {"channel": "Paid Search", "values": [492, 556, 794, 347, 3052, 699]}, {"channel": "Organic Search", "values": [505, 498, 392, 109, 421, 370]}, {"channel": "Organic Social", "values": [2, 0, 2, 0, 1, 4]}, {"channel": "Email", "values": [55, 28, 25, 26, 64, 38]}, {"channel": "Referral", "values": [49, 30, 57, 27, 42, 79]}, {"channel": "Direct", "values": [564, 416, 515, 83, 311, 283]}]};
+    const channelMix = {"months": ["2025-12", "2026-01", "2026-02", "2026-03", "2026-04", "2026-05"], "series": [{"channel": "Paid Social", "values": [76, 7, 10, 68, 76, 0]}, {"channel": "Paid Search", "values": [492, 556, 794, 347, 3052, 928]}, {"channel": "Organic Search", "values": [505, 498, 392, 109, 421, 682]}, {"channel": "Organic Social", "values": [2, 0, 2, 0, 1, 4]}, {"channel": "Email", "values": [55, 28, 25, 26, 64, 153]}, {"channel": "Referral", "values": [49, 30, 57, 27, 42, 257]}, {"channel": "Direct", "values": [564, 416, 515, 83, 311, 321]}]};
     if (channelMix && channelMix.series && channelMix.series.length > 0 && channelMix.months.length > 0) {
       const channelColors = {
         'Paid Social': COPPER,
@@ -15073,11 +15239,15 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
             { type: 'bar', label: 'Spend', yAxisID: 'y',
               data: paidSocialTotals.map(m => m.spend),
               backgroundColor: GRAY_LIGHT + 'AA', borderColor: GRAY_LIGHT,
-              borderWidth: 1, borderRadius: 3, maxBarThickness: 48, order: 2 },
+              borderWidth: 1, borderRadius: 3, maxBarThickness: 48, order: 2,
+              datalabels: { display: false } },
             { type: 'line', label: 'Blended CPM', yAxisID: 'y1',
               data: paidSocialTotals.map(m => m.cpm),
               borderColor: COPPER, backgroundColor: COPPER,
-              borderWidth: 2.5, tension: 0.3, pointRadius: 3, order: 1 },
+              borderWidth: 2.5, tension: 0.3, pointRadius: 3, order: 1,
+              datalabels: { display: true, align: 'top', offset: 4,
+                font: { size: 9, weight: '600' }, color: COPPER,
+                formatter: (v) => '$' + v.toFixed(2) } },
           ],
         },
         options: {
@@ -15110,13 +15280,16 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         'Lead Gen': SLATE,
         'Other': GRAY,
       };
+      const socTotals = paidTrend.months.map((_, i) =>
+        paidTrend.series.reduce((a, s) => a + (s.values[i] || 0), 0));
       new Chart(document.getElementById('paidSpendStackChart'), {
         type: 'bar',
         data: {
           labels: paidTrend.months,
           datasets: paidTrend.series.map(s => ({
             label: s.segment,
-            data: s.values,
+            data: s.values.map((v, i) => socTotals[i] ? v / socTotals[i] * 100 : 0),
+            _raw: s.values,
             backgroundColor: (segColors[s.segment] || GRAY) + 'CC',
             borderColor: segColors[s.segment] || GRAY,
             borderWidth: 1,
@@ -15130,9 +15303,10 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
           interaction: { mode: 'index', intersect: false },
           plugins: {
             legend: { position: 'bottom' },
+            datalabels: { display: false },
             tooltip: {
               callbacks: {
-                label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toLocaleString(undefined, {maximumFractionDigits: 0})}`,
+                label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(0)}% ($${(ctx.dataset._raw[ctx.dataIndex] || 0).toLocaleString(undefined, {maximumFractionDigits: 0})})`,
               },
             },
           },
@@ -15141,7 +15315,8 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
             y: {
               stacked: true,
               beginAtZero: true,
-              ticks: { callback: (v) => '$' + v.toLocaleString() },
+              max: 100,
+              ticks: { callback: (v) => v + '%' },
             },
           },
         },
@@ -15160,13 +15335,16 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
         'Video': CHARCOAL,
         'Other': GRAY,
       };
+      const psTotals = paidSearchTrend.months.map((_, i) =>
+        paidSearchTrend.series.reduce((a, s) => a + (s.values[i] || 0), 0));
       new Chart(document.getElementById('paidSearchSpendStackChart'), {
         type: 'bar',
         data: {
           labels: paidSearchTrend.months,
           datasets: paidSearchTrend.series.map(s => ({
             label: s.segment,
-            data: s.values,
+            data: s.values.map((v, i) => psTotals[i] ? v / psTotals[i] * 100 : 0),
+            _raw: s.values,
             backgroundColor: (searchSegColors[s.segment] || GRAY) + 'CC',
             borderColor: searchSegColors[s.segment] || GRAY,
             borderWidth: 1,
@@ -15180,9 +15358,10 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
           interaction: { mode: 'index', intersect: false },
           plugins: {
             legend: { position: 'bottom' },
+            datalabels: { display: false },
             tooltip: {
               callbacks: {
-                label: (ctx) => `${ctx.dataset.label}: $${ctx.parsed.y.toLocaleString(undefined, {maximumFractionDigits: 0})}`,
+                label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y.toFixed(0)}% ($${(ctx.dataset._raw[ctx.dataIndex] || 0).toLocaleString(undefined, {maximumFractionDigits: 0})})`,
               },
             },
           },
@@ -15191,7 +15370,8 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
             y: {
               stacked: true,
               beginAtZero: true,
-              ticks: { callback: (v) => '$' + v.toLocaleString() },
+              max: 100,
+              ticks: { callback: (v) => v + '%' },
             },
           },
         },
@@ -15210,12 +15390,16 @@ Our built-in Hybrid Fire Grill is designed to integrate seamlessly into the home
               data: paidSearchTotals.map(m => m.spend),
               backgroundColor: GRAY_LIGHT + 'AA', borderColor: GRAY_LIGHT,
               borderWidth: 1, borderRadius: 3, maxBarThickness: 48, order: 2,
+              datalabels: { display: false },
             },
             {
               type: 'line', label: 'Average CPC', yAxisID: 'y1',
               data: paidSearchTotals.map(m => m.cpc),
               borderColor: COPPER, backgroundColor: COPPER,
               borderWidth: 2.5, tension: 0.3, pointRadius: 3, order: 1,
+              datalabels: { display: true, align: 'top', offset: 4,
+                font: { size: 9, weight: '600' }, color: COPPER,
+                formatter: (v) => '$' + v.toFixed(2) },
             },
           ],
         },
